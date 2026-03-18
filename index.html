@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIVE NOW</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: black;
+    }
+
+    /* Video container logic for 9:16 aspect ratio */
+    .video-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 100vh;
+      aspect-ratio: 9/16;
+      z-index: 0;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* Overlay styling */
+    .overlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 100vh;
+      aspect-ratio: 9/16;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4); /* Darkened slightly for better text visibility */
+      text-align: center;
+      color: #fff;
+      z-index: 1;
+      padding: 20px;
+    }
+
+    .overlay h1 {
+      font-size: 2em;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,1);
+      max-width: 90%;
+      line-height: 1.3;
+    }
+
+    /* Primary CTA Button */
+    .btn {
+      padding: 18px 40px;
+      font-size: 1.4em;
+      font-weight: bold;
+      background-color: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 50px; /* Rounded pill shape for modern look */
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e64a19;
+      transform: scale(1.05);
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    @media (max-width: 768px) {
+      .overlay h1 {
+        font-size: 1.6em;
+      }
+      .btn {
+        font-size: 1.2em;
+        padding: 15px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="video-container">
+  <video autoplay muted loop playsinline>
+    <source src="https://cfcjddd.datsflow.com/bundle/515/assets/images/1.mp4" type="video/mp4">
+    আপনার ব্রাউজার ভিডিও সাপোর্ট করেনা।
+  </video>
+</div>
+
+<div class="overlay">
+  <h1>
+    Join For <span style="color: #ff5722;">FREE</span> <br>
+    <span style="color: red;">"LIVE NOW"</span> <br>
+    <span style="font-size: 0.7em; color: #00ffff;">Click the Button Below</span>
+  </h1>
+  <button class="btn" id="clickBtn">LIVE NOW</button>
+</div>
+
+<script>
+  // Updated with your MountAff CTA Link
+  const affiliateLink = "https://my.mountaff.com/click?camp=3839&pubid=13006&sid2=ratul12";
+
+  document.getElementById("clickBtn").addEventListener("click", function () {
+    // Redirects user immediately to your tracking link
+    window.location.href = affiliateLink;
+  });
+</script>
+
+</body>
+</html>
