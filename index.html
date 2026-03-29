@@ -1,130 +1,169 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LIVE NOW</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-      background: black;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔴 LIVE NOW</title>
 
-    /* Video container logic for 9:16 aspect ratio */
-    .video-container {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 100vh;
-      aspect-ratio: 9/16;
-      z-index: 0;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
 
-    .video-container video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-    }
+body{
+  background:black;
+  overflow:hidden;
+}
 
-    /* Overlay styling */
-    .overlay {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 100vh;
-      aspect-ratio: 9/16;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.4); /* Darkened slightly for better text visibility */
-      text-align: center;
-      color: #fff;
-      z-index: 1;
-      padding: 20px;
-    }
+/* Video */
+.video-container{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  height:100vh;
+  aspect-ratio:9/16;
+}
 
-    .overlay h1 {
-      font-size: 2em;
-      margin-bottom: 25px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,1);
-      max-width: 90%;
-      line-height: 1.3;
-    }
+video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:12px;
+}
 
-    /* Primary CTA Button */
-    .btn {
-      padding: 18px 40px;
-      font-size: 1.4em;
-      font-weight: bold;
-      background-color: #ff5722;
-      color: white;
-      border: none;
-      border-radius: 50px; /* Rounded pill shape for modern look */
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
-      transition: transform 0.2s, background 0.3s;
-    }
+/* Overlay */
+.overlay{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  height:100vh;
+  aspect-ratio:9/16;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.5);
+  color:white;
+  text-align:center;
+  padding:20px;
+}
 
-    .btn:hover {
-      background-color: #e64a19;
-      transform: scale(1.05);
-    }
+/* Live Badge */
+.live-badge{
+  background:red;
+  padding:6px 15px;
+  border-radius:20px;
+  font-weight:bold;
+  margin-bottom:15px;
+  animation:pulse 1s infinite;
+}
 
-    .btn:active {
-      transform: scale(0.95);
-    }
+@keyframes pulse{
+  0%{opacity:1;}
+  50%{opacity:0.5;}
+  100%{opacity:1;}
+}
 
-    @media (max-width: 768px) {
-      .overlay h1 {
-        font-size: 1.6em;
-      }
-      .btn {
-        font-size: 1.2em;
-        padding: 15px 30px;
-      }
-    }
-  </style>
+h1{
+  font-size:2em;
+  margin-bottom:15px;
+}
+
+.sub{
+  color:#00ffff;
+  margin-bottom:20px;
+}
+
+/* Viewer count */
+.viewers{
+  font-size:14px;
+  margin-bottom:20px;
+  color:#ccc;
+}
+
+/* Button */
+.btn{
+  padding:18px 40px;
+  font-size:1.3em;
+  background:#ff5722;
+  border:none;
+  border-radius:50px;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 4px 15px rgba(255,87,34,0.5);
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  background:#e64a19;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  h1{font-size:1.6em;}
+  .btn{font-size:1.1em;}
+}
+</style>
 </head>
+
 <body>
 
+<!-- Video -->
 <div class="video-container">
   <video autoplay muted loop playsinline>
     <source src="https://cfcjddd.datsflow.com/bundle/515/assets/images/1.mp4" type="video/mp4">
-    আপনার ব্রাউজার ভিডিও সাপোর্ট করেনা।
   </video>
 </div>
 
+<!-- Overlay -->
 <div class="overlay">
+
+  <div class="live-badge">🔴 LIVE</div>
+
   <h1>
-    Join For <span style="color: #ff5722;">FREE</span> <br>
-    <span style="color: red;">"LIVE NOW"</span> <br>
-    <span style="font-size: 0.7em; color: #00ffff;">Click the Button Below</span>
+    Join For <span style="color:#ff5722;">FREE</span><br>
+    Live Streaming Now
   </h1>
-  <button class="btn" id="clickBtn">LIVE NOW</button>
+
+  <div class="sub">Click below to unlock access</div>
+
+  <div class="viewers">
+    👀 <span id="viewerCount">1,245</span> people watching now
+  </div>
+
+  <button class="btn" id="clickBtn">WATCH LIVE NOW</button>
+
 </div>
 
 <script>
-  // Updated with your MountAff CTA Link
-  const affiliateLink = " 
-https://my.mountaff.com/click?camp=94810&pubid=43109&sid2=ratul99
- ";
 
-  document.getElementById("clickBtn").addEventListener("click", function () {
-    // Redirects user immediately to your tracking link
-    window.location.href = affiliateLink;
-  });
+// ✅ YOUR CTA LINK
+const affiliateLink = "https://my.mountaff.com/click?camp=94810&pubid=43109&sid2=ratul99";
+
+// Button click redirect
+document.getElementById("clickBtn").addEventListener("click", function () {
+  window.location.href = affiliateLink;
+});
+
+// Auto redirect after 7 sec
+setTimeout(function(){
+  window.location.href = affiliateLink;
+},7000);
+
+// Fake live viewer counter (random increase)
+setInterval(function(){
+  let count = document.getElementById("viewerCount");
+  let num = parseInt(count.innerText.replace(",",""));
+  num += Math.floor(Math.random()*5);
+  count.innerText = num.toLocaleString();
+},2000);
+
 </script>
 
 </body>
